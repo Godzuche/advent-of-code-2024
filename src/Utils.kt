@@ -33,3 +33,9 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
 fun Any?.println(
     transform: Any?.() -> String = { this.toString() }
 ) = println(transform())
+
+fun <T> List<T>.second(): T {
+    if (isEmpty() || size < 2)
+        throw NoSuchElementException("Element does not exist.")
+    return this[2]
+}
